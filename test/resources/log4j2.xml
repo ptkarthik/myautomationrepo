@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- Default scenarioName if it's empty -->
+            <PatternLayout pattern="%d [%t] %-5level [%X{scenarioName:-NoScenario}] %logger{36} - %msg%n" />
+        </Console>
+
+        <!-- File Appender -->
+        <File name="FileAppender" fileName="logs/app-debug.log" append="true">
+            <!-- Default scenarioName if it's empty -->
+            <PatternLayout pattern="%d [%t] %-5level [%X{scenarioName:-NoScenario}] %logger{36} - %msg%n" />
+        </File>
+
+        <!-- Scenario Specific File Appender -->
+        <File name="ScenarioFileAppender" fileName="logs/scenario-%X{scenarioName}.log" append="true">
+            <PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg%n" />
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <!-- Logger for specific packages -->
+        <Logger name="billing.stepDefinitions" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="FileAppender" />
+            <AppenderRef ref="ScenarioFileAppender" />
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="FileAppender" />
+        </Root>
+    </Loggers>
+</Configuration>
