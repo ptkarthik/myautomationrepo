@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <artifactId>bsp-ui-automation</artifactId>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <includes>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <include>**/${tests}TestRunner.java</include>
+                    </includes>
+                    <systemPropertyVariables>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <cucumber.filter.tags>${tags}</cucumber.filter.tags>
+                    </systemPropertyVariables>
+                    <properties>
+                        <property>
+                            <name>dataproviderthreadcount</name>
+                            <!--suppress UnresolvedMavenProperty -->
+                            <value>1</value>
+                        </property>
+                    </properties>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>3.10.1</version>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>7.21.1</version>
+        </dependency>
+
+        <!-- Log4j2 Core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.24.3</version> <!-- Use the latest version -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.5</version> <!-- Use the latest version -->
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.2.5</version> <!-- Use the latest version -->
+        </dependency>
+
+        <!-- Log4j2 API -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.24.3</version> <!-- Use the latest version -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <artifactId>selenium-java</artifactId>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <version>4.26.0</version>
+        </dependency>
+        <dependency>
+            <artifactId>cucumber-testng</artifactId>
+            <groupId>io.cucumber</groupId>
+            <version>7.20.1</version>
+        </dependency>
+        <dependency>
+            <artifactId>cucumber-java</artifactId>
+            <groupId>io.cucumber</groupId>
+            <version>7.20.1</version>
+        </dependency>
+        <dependency>
+            <artifactId>testng</artifactId>
+            <groupId>org.testng</groupId>
+            <version>7.10.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>chaintest-cucumber-jvm</artifactId>
+            <version>1.0.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <artifactId>slf4j-simple</artifactId>
+            <groupId>org.slf4j</groupId>
+            <scope>test</scope>
+            <version>1.7.36</version>
+        </dependency>
+        <dependency>
+            <artifactId>lombok</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <scope>provided</scope>
+            <version>1.18.30</version>
+        </dependency>
+        <dependency>
+            <artifactId>assertj-core</artifactId>
+            <groupId>org.assertj</groupId>
+            <version>3.23.1</version>
+        </dependency>
+        <dependency>
+            <artifactId>gson</artifactId>
+            <groupId>com.google.code.gson</groupId>
+            <version>2.9.0</version>
+        </dependency>
+        <dependency>
+            <artifactId>fugue</artifactId>
+            <groupId>io.atlassian.fugue</groupId>
+            <version>4.7.2</version>
+        </dependency>
+        <dependency>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <groupId>jakarta.ws.rs</groupId>
+            <version>3.1.0</version>
+        </dependency>    <!-- JIRA REST Java Client Core -->
+        <!-- HttpClient dependency (required for the client to function properly) -->
+        <dependency>
+            <artifactId>httpclient</artifactId>
+            <groupId>org.apache.httpcomponents</groupId>
+            <version>4.5.13</version>
+        </dependency>
+        <dependency>
+            <artifactId>commons-io</artifactId>
+            <groupId>commons-io</groupId>
+            <version>2.14.0</version>
+        </dependency>
+        <dependency>
+            <artifactId>jersey-common</artifactId>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <version>3.0.4</version>
+        </dependency>
+        <dependency>
+            <artifactId>jersey-server</artifactId>
+            <groupId>com.sun.jersey</groupId>
+            <version>1.19.4</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>mail</artifactId>
+            <groupId>javax.mail</groupId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <artifactId>rest-assured</artifactId>
+            <groupId>io.rest-assured</groupId>
+            <scope>compile</scope>
+            <version>5.5.0</version>
+        </dependency>
+        <dependency>
+            <artifactId>cucumber-core</artifactId>
+            <groupId>io.cucumber</groupId>
+            <scope>compile</scope>
+            <version>7.20.1</version>
+        </dependency>
+
+
+    </dependencies>
+    <groupId>org.bsp.automation</groupId>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>bams-central</id>
+            <name>bams-central</name>
+            <url>https://bams-aws.refinitiv.com/artifactory/default.maven.global/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <properties>
+        <junit.jupiter.version>5.8.2</junit.jupiter.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <serenity.cucumber.version>4.2.6</serenity.cucumber.version>
+        <serenity.version>4.2.6</serenity.version>
+        <webdriver.driver/>
+    </properties>
+    <repositories>
+        <repository>
+            <id>bams-central</id>
+            <name>bams-central</name>
+            <url>https://bams-aws.refinitiv.com/artifactory/default.maven.global/</url>
+        </repository>
+
+    </repositories>
+    <version>1.0-SNAPSHOT</version>
+
+</project>

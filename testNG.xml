@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Automation BSP Suite">
+  <test name="BSP - Automation Suite">
+    <classes>
+      <class name="billing.acceptancetests.api.ApiTestRunner"/>
+    </classes>
+  </test>
+</suite>

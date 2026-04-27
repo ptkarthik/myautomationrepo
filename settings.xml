@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 http://maven.apache.org/xsd/settings-1.2.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <servers>
+        <server>
+            <id>maven-central</id>
+            <username>${server.username}</username>
+            <password>${server.password}</password>
+        </server>
+        <!-- Add the credentials for each additional repository here.-->
+    </servers>
+    <profiles>
+        <profile>
+            <id>artifactory</id>
+            <repositories>
+                <repository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>maven-central</id>
+                    <name>maven-central-remote</name>
+                    <url>https://artifactory.lseg.com/artifactory/maven-central-remote</url>
+                </repository>
+                <!-- You can add more artifact repositories here -->
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>maven-central</id>
+                    <name>maven-central-remote</name>
+                    <url>https://artifactory.lseg.com/artifactory/maven-central-remote</url>
+                </pluginRepository>
+                <!-- You can add more plugin repositories here -->
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>artifactory</activeProfile>
+    </activeProfiles>
+    <!-- <proxies> -->
+    <!-- Add this proxy settings if you have a connection timeout error in your pipeline -->
+    <!-- Otherwise, you can remove the proxy settings -->
+    <!--<proxy>
+        <id>squid-proxy-server</id>
+        <active>true</active>
+        <protocol>http</protocol>
+        <host>proxy_vpc-06af62826ff491e6c</host>
+        <port>3128</port>
+    </proxy>
+</proxies> -->
+</settings>

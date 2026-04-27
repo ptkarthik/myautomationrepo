@@ -1,0 +1,4 @@
+priority,clientName,brokerName,traderName,capType,securityType,excludeCountry,countriesList,orderType,side,instrument,startDate,endDate,value,currency
+1,KADENSA,jpm,,MONTHLY,CS,TRUE,"CANADA,UK,USA",,,,2025-06-09,2025-06-29,1000,USD
+2,GALAXY,AES,,DAILY,ANY,TRUE,"CANADA,UK,USA",string,string,string,2025-06-09,2025-06-29,3,USD
+3,22NW,citi,,DAILY,ANY,TRUE,"CANADA,UK,USA",string,string,string,2025-06-09,2025-06-29,4,USD
